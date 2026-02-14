@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Gửi cậu, cô gái mạnh mẽ 💖</title>
+
+<style>
+    body {
+        background: 
+        url("Hình valentine.jpg");
+    background-size: cover;
+
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: 'Segoe UI', sans-serif;
+       
+    }
+
+    .title {
+        position: absolute;
+        top: 30%;
+        width: 100%;
+        text-align: center;
+        font-size: 32px;
+        color: white;
+        font-weight: bold;
+        text-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .message {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 22px;
+        color: white;
+        opacity: 0;
+        animation: floatUp 6s ease-in-out forwards;
+        text-align: center;
+        width: 80%;
+    }
+
+    @keyframes floatUp {
+        0% { top: 65%; opacity: 0; }
+        20% { opacity: 1; }
+        80% { opacity: 1; }
+        100% { top: 15%; opacity: 0; }
+    }
+
+    .heart {
+        position: fixed;
+        color: #fff;
+        font-size: 20px;
+        animation: heartFloat 7s linear infinite;
+    }
+
+    @keyframes heartFloat {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(-700px); opacity: 0; }
+    }
+
+    iframe {
+        display: none;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="title">💌 Đôi lời mình gửi đến bạn nhỏ nè 💌</div>
+<img src="Capoo ngại.gif" alt="Mô tả ảnh"  width="150" height="100" style="position: relative; top: 500px; left: 700px;">
+ 
+
+<!-- Nhạc nền (thay link vào src) -->
+<audio id="myAudio" autoplay loop>
+    <source src="Tình Yêu Chậm Trễ.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    document.addEventListener('click', function() {
+        var audio = document.getElementById("myAudio");
+        audio.muted = false; // Bật tiếng khi người dùng click
+        audio.play();
+    }, { once: true }); // Chỉ chạy 1 lần duy nhất
+</script>
+<script>
+
+const messages = [
+    'Heeeeeeeheeeee, nay ngựa ngựa xíu =)))',
+    'CHÚC BẠN NHỎ VALENTINE VUI VẺ VÀ NHẬN ĐƯỢC NHỮNG ĐIỀU NGỌT NGÀO NHẤT ☆*: .｡. o(≧▽≦)o .｡.:*☆',
+    'Bạn nhỏ ơi !!!!',
+    'Mình muốn nói với bạn nhỏ rằng là:...',
+    'Dù hôm nay có mệt mỏi, mình vẫn tin bạn nhỏ mạnh mẽ',
+    'Vì mình biết trong bạn nhỏ luôn có một ngọn lửa',
+
+'Ngọn lửa ấy sẽ soi sáng những ngày u ám',
+'Nếu công việc làm Bạn nhỏ áp lực, hãy nhớ còn mình',
+'Mình luôn ở đây, lắng nghe và thấu hiểu',
+'Chỉ cần bạn nhỏ quay lại, mình sẽ mỉm cười',
+'Nụ cười của bạn nhỏ là động lực mỗi ngày của mình',
+'Nên mình mong bạn nhỏ cũng giữ nụ cười ấy',
+'Dù thử thách phía trước có lớn đến đâu',
+'Bạn nhỏ vẫn đủ bản lĩnh để bước tiếp',
+'Bởi vì bạn nhỏ đã vượt qua nhiều điều khó hơn',
+'Mỗi lần vấp ngã chỉ làm bạn nhỏ trưởng thành thêm',
+'Thế nên đừng sợ những điều chưa biết',
+'Hãy tin vào chính mình như mình tin bạn nhỏ',
+'Tin rằng ngày mai sẽ dịu dàng hơn hôm nay',
+'Nếu có lúc bạn nhỏ thấy mình nhỏ bé',
+'Hãy nhớ bạn nhỏ luôn đặc biệt trong mắt mình',
+'Sự cố gắng của bạn nhỏ chưa bao giờ vô nghĩa',
+'Và từng bước nhỏ đều đang tạo nên kỳ tích',
+'Chỉ cần bạn nhỏ không bỏ cuộc giữa chừng',
+'Mình tin thành công sẽ tìm đến Bạn nhỏ',
+'Khi bạn nhỏ mệt, hãy cho mình nghỉ một chút',
+'Rồi sau đó mạnh mẽ đứng dậy bước tiếp',
+'Vì phía trước là những điều tốt đẹp chờ bạn nhỏ',
+'Và mình cũng đang chờ được thấy bạn nhỏ tỏa sáng',
+'Dù con đường có quanh co và dài',
+'Bạn nhỏ vẫn có đủ dịu dàng và kiên cường',
+'Mình tự hào về mọi nỗ lực bạn nhỏ đang cố gắng',
+'Thế nên đừng nghi ngờ giá trị của mình',
+"Vì với mình, bạn nhỏ luôn là điều tuyệt vời nhất…💖",
+];
+
+let index = 0;
+
+function showNextMessage() {
+    if (index >= messages.length) return;
+
+    const msg = document.createElement("div");
+    msg.className = "message";
+    msg.innerText = messages[index];
+    document.body.appendChild(msg);
+
+    setTimeout(() => {
+        msg.remove();
+    }, 10000);
+
+    index++;
+    setTimeout(showNextMessage, 3000);
+}
+
+function createHearts() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 25 + 15 + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 7000);
+    }, 400);
+}
+
+showNextMessage();
+createHearts();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hộp Quà Kỳ Diệu</title>
+    <style>
+         body {
+        background: 
+        url("trái tim 1.webp");
+    background-size: cover;
+
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: 'Segoe UI', sans-serif;
+       
+    }
+
+    .title {
+        position: absolute;
+        top: 30%;
+        width: 100%;
+        text-align: center;
+        font-size: 32px;
+        color: white;
+        font-weight: bold;
+        text-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .message {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 22px;
+        color: white;
+        opacity: 0;
+        animation: floatUp 6s ease-in-out forwards;
+        text-align: center;
+        width: 80%;
+    }
+
+    @keyframes floatUp {
+        0% { top: 65%; opacity: 0; }
+        20% { opacity: 1; }
+        80% { opacity: 1; }
+        100% { top: 15%; opacity: 0; }
+    }
+
+    .heart {
+        position: fixed;
+        color: #fff;
+        font-size: 20px;
+        animation: heartFloat 7s linear infinite;
+    }
+
+    @keyframes heartFloat {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(-700px); opacity: 0; }
+    }
+
+    iframe {
+        display: none;
+    }
+        .container { text-align: center; margin-top: 50px; font-family: Arial; }
+
+        /* Nút bấm */
+        .btn {
+            margin-top: 20px; padding: 10px 20px;
+            background-color: #3498db; color: white;
+            border: none; border-radius: 5px; cursor: pointer;
+        }
+
+        /* Nội dung ẩn */
+        #hidden-content { display: none; margin-top: 20px; }
+    </style>
+    <img src="tải xuống.jpg" alt="Mô tả ảnh"  width="200" height="200" style="position: relative; top: 15px; left: 660px; border: none;">
+    <img src="6fd34383dcc18aa07775bf1f62af2ec1.gif" alt="Mô tả ảnh"  width="150" height="100" style="position: relative; top: 220px; left: 500px;">
+</head>
+<body>
+
+<div class="container">
+    <div id="gift-section">
+        <div class="gift-box"></div>
+        <button class="btn" onclick="openGift()">Bấm vào đây đi nào bạn nhỏ (❁´◡`❁)</button>
+    </div>
+
+    <div id="hidden-content">
+        <h2>
+            <a href="valen1.html">Di chuyển đến phần tiếp theo nào</a> </h2>
+    </div>
+</div>
+
+<script>
+    function openGift() {
+        // Ẩn hộp quà
+        document.getElementById('gift-section').style.display = 'none';
+        // Hiện nội dung
+        document.getElementById('hidden-content').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
